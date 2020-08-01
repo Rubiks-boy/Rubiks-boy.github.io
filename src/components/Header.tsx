@@ -6,6 +6,7 @@ import Typography from "@material-ui/core/Typography";
 import React from "react";
 import { Link } from "react-router-dom";
 import { RESUME_PATH } from "../constants";
+import { SocialIcon } from "react-social-icons";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -63,6 +64,19 @@ export default function Album() {
                     <Button variant="outlined" color="primary">
                       Secondary action
                     </Button>
+                  </Grid>
+                </Grid>
+              </div>
+              <div className={classes.heroButtons}>
+                <Grid container spacing={1} className={classes.components}>
+                  <Grid item>
+                    <SocialIcon url="https://github.com/Rubiks-boy" />
+                  </Grid>
+                  <Grid item>
+                    <SocialIcon url="https://www.facebook.com/adamwalker567123/" />
+                  </Grid>
+                  <Grid item>
+                    <SocialIcon url="https://www.linkedin.com/in/adam-walker-hmc/" />
                   </Grid>
                 </Grid>
               </div>
