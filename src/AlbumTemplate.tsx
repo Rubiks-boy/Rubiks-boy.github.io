@@ -13,6 +13,13 @@ const useStyles = makeStyles((theme) => ({
   heroButtons: {
     marginTop: theme.spacing(4),
   },
+  components: {
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      justifyContent: "center",
+    },
+    [theme.breakpoints.up("md")]: {},
+  },
 }));
 
 export default function Album() {
@@ -21,40 +28,43 @@ export default function Album() {
   return (
     <>
       <div className={classes.heroContent}>
-        <Container maxWidth="sm">
-          <Typography
-            component="h1"
-            variant="h2"
-            align="center"
-            color="textPrimary"
-            gutterBottom
-          >
-            Album layout
-          </Typography>
-          <Typography
-            variant="h5"
-            align="center"
-            color="textSecondary"
-            paragraph
-          >
-            Something short and leading about the collection below—its contents,
-            the creator, etc. Make it short and sweet, but not too short so
-            folks don&apos;t simply skip over it entirely.
-          </Typography>
-          <div className={classes.heroButtons}>
-            <Grid container spacing={2} justify="center">
-              <Grid item>
-                <Button variant="contained" color="primary">
-                  Main call to action
-                </Button>
-              </Grid>
-              <Grid item>
-                <Button variant="outlined" color="primary">
-                  Secondary action
-                </Button>
-              </Grid>
+        <Container maxWidth="md">
+          <Grid container spacing={4}>
+            <Grid item key={1} xs={12} sm={12} md={6}>
+              <Typography
+                className={classes.components}
+                component="h1"
+                variant="h2"
+                color="textPrimary"
+                gutterBottom
+              >
+                Adam Walker
+              </Typography>
+              <Typography
+                className={classes.components}
+                variant="h5"
+                color="textSecondary"
+                paragraph
+              >
+                I will come up with something to put here.
+              </Typography>
+              <div className={classes.heroButtons}>
+                <Grid container spacing={2} className={classes.components}>
+                  <Grid item>
+                    <Button variant="contained" color="primary">
+                      Main call to action
+                    </Button>
+                  </Grid>
+                  <Grid item>
+                    <Button variant="outlined" color="primary">
+                      Secondary action
+                    </Button>
+                  </Grid>
+                </Grid>
+              </div>
             </Grid>
-          </div>
+            <Grid item key={2} xs={12} sm={6} md={4}></Grid>
+          </Grid>
         </Container>
       </div>
     </>
