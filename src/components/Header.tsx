@@ -8,7 +8,7 @@ import React from "react";
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.paper,
-    padding: theme.spacing(8, 0, 6),
+    padding: theme.spacing(18, 0, 16),
   },
   heroButtons: {
     marginTop: theme.spacing(4),

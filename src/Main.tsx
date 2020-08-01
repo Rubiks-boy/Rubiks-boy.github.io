@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import AlbumTemplate from "./AlbumTemplate";
+import Header from "./components/Header";
 import Projects from "./components/Projects";
 
 export default class Main extends Component {
   render() {
     return (
       <>
-        <AlbumTemplate />
+        <Header />
         <Projects />
       </>
     );
