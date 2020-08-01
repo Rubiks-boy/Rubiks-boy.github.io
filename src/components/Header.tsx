@@ -11,7 +11,7 @@ import { SocialIcon } from "react-social-icons";
 const useStyles = makeStyles((theme) => ({
   heroContent: {
     backgroundColor: theme.palette.background.default,
-    padding: theme.spacing(18, 0, 16),
+    padding: theme.spacing(12, 0, 9),
   },
   heroButtons: {
     marginTop: theme.spacing(4),
