@@ -11,8 +11,8 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import FadeInOnLoad from "./FadeInOnLoad";
-import { FADEIN_SEPARATION } from "../constants";
-import { projects } from "../projects";
+import { FADEIN_SEPARATION_FAST } from "../constants";
+import { projects } from "../data";
 
 interface ProjectCard {
   name: string;
@@ -52,7 +52,7 @@ export default function Projects() {
         <Grid container spacing={4}>
           {projects.map((card: ProjectCard, i) => (
             <Grid item key={i} xs={12} sm={6} md={4}>
-              <FadeInOnLoad delay={i * FADEIN_SEPARATION}>
+              <FadeInOnLoad delay={i * FADEIN_SEPARATION_FAST}>
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}

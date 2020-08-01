@@ -2,6 +2,7 @@ import React from "react";
 import { Typography, Link, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import { SocialIcon } from "react-social-icons";
+import { social } from "./data";
 
 const useStyles = makeStyles((theme) => ({
   footer: {
@@ -45,32 +46,19 @@ export default function Footer() {
       >
         Something here to give the footer a purpose!
       </Typography>
-      <div>
-        <Grid container spacing={1} className={classes.socialIcons}>
+      <Grid container spacing={1} className={classes.socialIcons}>
+        {social.map((url: string) => (
           <Grid item>
             <SocialIcon
-              url="https://github.com/Rubiks-boy"
+              url={url}
               style={{
                 width: "30px",
                 height: "30px",
-                color: "black",
               }}
             />
           </Grid>
-          <Grid item>
-            <SocialIcon
-              url="https://www.facebook.com/adamwalker567123/"
-              style={{ width: "30px", height: "30px" }}
-            />
-          </Grid>
-          <Grid item>
-            <SocialIcon
-              url="https://www.linkedin.com/in/adam-walker-hmc/"
-              style={{ width: "30px", height: "30px" }}
-            />
-          </Grid>
-        </Grid>
-      </div>
+        ))}
+      </Grid>
       <Copyright />
     </footer>
   );

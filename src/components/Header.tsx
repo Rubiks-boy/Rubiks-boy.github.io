@@ -9,9 +9,11 @@ import {
   RESUME_PATH,
   FADEIN_SOCIAL_TIMEOUT,
   FADEIN_TIMEOUT_FAST,
+  FADEIN_SEPARATION,
 } from "../constants";
 import { SocialIcon } from "react-social-icons";
 import FadeInOnLoad from "./FadeInOnLoad";
+import { social } from "../data";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -59,7 +61,7 @@ export default function Album() {
                 </Typography>
               </div>
             </FadeInOnLoad>
-            <FadeInOnLoad delay={300}>
+            <FadeInOnLoad delay={FADEIN_SEPARATION}>
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} className={classes.components}>
                   <Grid item>
@@ -79,26 +81,17 @@ export default function Album() {
             </FadeInOnLoad>
             <div className={classes.heroButtons}>
               <Grid container spacing={1} className={classes.components}>
-                <Grid item>
-                  <FadeInOnLoad timeout={FADEIN_SOCIAL_TIMEOUT} delay={600}>
-                    <SocialIcon url="https://github.com/Rubiks-boy" />
-                  </FadeInOnLoad>
-                </Grid>
-                <Grid item>
-                  <FadeInOnLoad timeout={FADEIN_SOCIAL_TIMEOUT} delay={900}>
-                    <SocialIcon url="https://www.facebook.com/adamwalker567123/" />
-                  </FadeInOnLoad>
-                </Grid>
-                <Grid item>
-                  <FadeInOnLoad timeout={FADEIN_SOCIAL_TIMEOUT} delay={1200}>
-                    <SocialIcon url="https://www.linkedin.com/in/adam-walker-hmc/" />
-                  </FadeInOnLoad>
-                </Grid>
-                <Grid item>
-                  <FadeInOnLoad timeout={FADEIN_SOCIAL_TIMEOUT} delay={1500}>
-                    <SocialIcon url="https://www.youtube.com/channel/UCuXDq-eMMNt_M49FI4RG7lQ/" />
-                  </FadeInOnLoad>
-                </Grid>
+                {social.map((url: string, i: number) => (
+                  <Grid item>
+                    <FadeInOnLoad
+                      timeout={FADEIN_SOCIAL_TIMEOUT}
+                      // +2 from the delays for text, and then buttons
+                      delay={FADEIN_SEPARATION * (i + 2)}
+                    >
+                      <SocialIcon url={url} />
+                    </FadeInOnLoad>
+                  </Grid>
+                ))}
               </Grid>
             </div>
           </Grid>

@@ -23,3 +23,10 @@ export const projects = [
     image: "https://source.unsplash.com/random",
   },
 ];
+
+export const social = [
+  "https://github.com/Rubiks-boy",
+  "https://www.facebook.com/adamwalker567123/",
+  "https://www.linkedin.com/in/adam-walker-hmc/",
+  "https://www.youtube.com/channel/UCuXDq-eMMNt_M49FI4RG7lQ/",
+];
