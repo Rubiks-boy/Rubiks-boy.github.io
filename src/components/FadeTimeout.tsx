@@ -20,10 +20,7 @@ export default class FadeTimeout extends React.Component<Props, State> {
   }
 
   componentDidMount() {
-    for (let i = 0; i < 5; ++i) {
-      const delay = i * 200;
-      this.performFadeIn(this.setFadeIn);
-    }
+    this.performFadeIn(this.setFadeIn);
   }
 
   setFadeIn = () => {
@@ -47,7 +44,7 @@ export default class FadeTimeout extends React.Component<Props, State> {
     const { fadeIn } = this.state;
 
     return (
-      <Fade in={fadeIn} timeout={1000}>
+      <Fade in={fadeIn} timeout={1500}>
         {children}
       </Fade>
     );

@@ -7,7 +7,6 @@ import {
   Container,
   Grid,
   Typography,
-  Fade,
 } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
@@ -45,7 +44,7 @@ export default function Projects() {
       <Grid container spacing={4}>
         {cards.map((card, i) => (
           <Grid item key={card} xs={12} sm={6} md={4}>
-            <FadeTimeout delay={i * 80}>
+            <FadeTimeout delay={i * 100}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
