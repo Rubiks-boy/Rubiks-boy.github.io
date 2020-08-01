@@ -17,6 +17,7 @@ import { projects } from "../projects";
 interface ProjectCard {
   name: string;
   desc: string;
+  image: string;
 }
 
 const useStyles = makeStyles((theme) => ({
@@ -55,7 +56,7 @@ export default function Projects() {
                 <Card className={classes.card}>
                   <CardMedia
                     className={classes.cardMedia}
-                    image="https://source.unsplash.com/random"
+                    image={card.image}
                     title="Image title"
                   />
                   <CardContent className={classes.cardContent}>
