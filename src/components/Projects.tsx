@@ -57,7 +57,7 @@ export default function Projects() {
                   <CardMedia
                     className={classes.cardMedia}
                     image={card.image}
-                    title="Image title"
+                    title={card.name}
                   />
                   <CardContent className={classes.cardContent}>
                     <Typography gutterBottom variant="h5" component="h2">
