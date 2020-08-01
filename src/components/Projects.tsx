@@ -1,78 +1,79 @@
-import React, { Component } from "react";
-import ProjectCard from "./ProjectCard";
-import Container from "react-bootstrap/esm/Container";
-import Row from "react-bootstrap/Row";
+import {
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
+  Container,
+  Grid,
+  Typography,
+  Fade,
+} from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import React from "react";
+import FadeTimeout from "./FadeTimeout";
 
-interface Props {}
-interface State {
-  fadeIn: Array<boolean>;
-}
+const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-export default class Projects extends Component<Props, State> {
-  constructor(props: Props) {
-    super(props);
+const useStyles = makeStyles((theme) => ({
+  cardGrid: {
+    paddingTop: theme.spacing(8),
+    paddingBottom: theme.spacing(8),
+  },
+  card: {
+    height: "100%",
+    display: "flex",
+    flexDirection: "column",
+  },
+  cardMedia: {
+    paddingTop: "56.25%", // 16:9
+  },
+  cardContent: {
+    flexGrow: 1,
+  },
+  footer: {
+    backgroundColor: theme.palette.background.paper,
+    padding: theme.spacing(6),
+  },
+}));
 
-    const fadeIn: Array<boolean> = [];
+export default function Projects() {
+  const classes = useStyles();
 
-    for (let i = 0; i < 5; ++i) {
-      fadeIn.push(false);
-    }
-
-    this.state = { fadeIn };
-  }
-
-  componentDidMount() {
-    for (let i = 0; i < 5; ++i) {
-      const delay = i * 200;
-      this.performFadeIn(this.setFadeIn, i, delay);
-    }
-  }
-
-  setFadeIn = (i: number, val: boolean = true) => {
-    // set the project at index i to fade in/out
-    const { fadeIn } = this.state;
-
-    fadeIn[i] = val;
-    this.setState({
-      ...this.state,
-      fadeIn,
-    });
-  };
-
-  performFadeIn = (
-    setFadeIn: (i: number) => void,
-    i: number,
-    delay: number
-  ) => {
-    // Get the current 'global' time from an API using Promise
-    return new Promise(() => {
-      setTimeout(() => {
-        setFadeIn(i);
-      }, delay);
-    });
-  };
-
-  // getCurrentTime()
-  //   .then(currentTime => getCurrentTime())
-  //   .then(currentTime => {
-  //     console.log('The current time is: ' + currentTime);
-  //     return true;
-  //   })
-  //   .catch(err => console.log('There was an error:' + err))
-
-  render() {
-    const { fadeIn } = this.state;
-
-    return (
-      <Container>
-        <Row>
-          {fadeIn.map((f, i) => (
-            <div key={i}>
-              <ProjectCard fadeIn={f} />
-            </div>
-          ))}
-        </Row>
-      </Container>
-    );
-  }
+  return (
+    <Container className={classes.cardGrid} maxWidth="md">
+      <Grid container spacing={4}>
+        {cards.map((card, i) => (
+          <Grid item key={card} xs={12} sm={6} md={4}>
+            <FadeTimeout delay={i * 80}>
+              <Card className={classes.card}>
+                <CardMedia
+                  className={classes.cardMedia}
+                  image="https://source.unsplash.com/random"
+                  title="Image title"
+                />
+                <CardContent className={classes.cardContent}>
+                  <Typography gutterBottom variant="h5" component="h2">
+                    Heading
+                  </Typography>
+                  <Typography>
+                    This is a media card. You can use this section to describe
+                    the content.
+                  </Typography>
+                </CardContent>
+                <CardActions>
+                  <Button size="small" variant="contained" color="primary">
+                    View
+                  </Button>
+                  <Button size="small" color="primary">
+                    Edit
+                  </Button>
+                </CardActions>
+              </Card>
+            </FadeTimeout>
+          </Grid>
+        ))}
+      </Grid>
+    </Container>
+  );
 }
