@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import {
   RESUME_PATH,
   FADEIN_SOCIAL_TIMEOUT,
+  FADEIN_TIMEOUT,
   FADEIN_TIMEOUT_FAST,
 } from "../constants";
 import { SocialIcon } from "react-social-icons";
@@ -81,7 +82,7 @@ export default function Album() {
                   </Typography>
                 </div>
               </Fade>
-              <Fade in={fadeInBtns} timeout={FADEIN_TIMEOUT_FAST}>
+              <Fade in={fadeInBtns} timeout={FADEIN_TIMEOUT}>
                 <div className={classes.heroButtons}>
                   <Grid container spacing={2} className={classes.components}>
                     <Grid item>
