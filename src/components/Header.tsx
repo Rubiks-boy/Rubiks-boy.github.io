@@ -53,7 +53,7 @@ export default function Album() {
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} className={classes.components}>
                   <Grid item>
-                    <Link to={RESUME_PATH} target="_blank" download>
+                    <Link to={RESUME_PATH} target="_blank">
                       <Button variant="contained" color="primary">
                         Download Resume
                       </Button>
