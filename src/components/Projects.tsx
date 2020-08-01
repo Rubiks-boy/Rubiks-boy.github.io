@@ -11,6 +11,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import React from "react";
 import FadeTimeout from "./FadeTimeout";
+import { FADEIN_SEPARATION } from "../constants";
 
 const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
@@ -44,7 +45,7 @@ export default function Projects() {
       <Grid container spacing={4}>
         {cards.map((card, i) => (
           <Grid item key={card} xs={12} sm={6} md={4}>
-            <FadeTimeout delay={i * 100}>
+            <FadeTimeout delay={i * FADEIN_SEPARATION}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}

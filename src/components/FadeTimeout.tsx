@@ -1,5 +1,6 @@
 import React from "react";
 import { Fade } from "@material-ui/core";
+import { FADEIN_TIMEOUT } from "../constants";
 
 export interface Props {
   children: React.ReactElement;
@@ -31,7 +32,6 @@ export default class FadeTimeout extends React.Component<Props, State> {
 
   performFadeIn = (setFadeIn: () => void) => {
     const { delay } = this.props;
-    // Get the current 'global' time from an API using Promise
     return new Promise(() => {
       setTimeout(() => {
         setFadeIn();
@@ -44,7 +44,7 @@ export default class FadeTimeout extends React.Component<Props, State> {
     const { fadeIn } = this.state;
 
     return (
-      <Fade in={fadeIn} timeout={1500}>
+      <Fade in={fadeIn} timeout={FADEIN_TIMEOUT}>
         {children}
       </Fade>
     );
