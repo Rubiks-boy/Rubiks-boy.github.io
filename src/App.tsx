@@ -1,14 +1,15 @@
 import React from "react";
 import Main from "./Main";
 import Footer from "./Footer";
+import { BrowserRouter } from "react-router-dom";
 
-function App() {
+export default function App() {
   return (
     <div className="App">
-      <Main />
-      <Footer />
+      <BrowserRouter>
+        <Main />
+        <Footer />
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;

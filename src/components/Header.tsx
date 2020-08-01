@@ -4,6 +4,8 @@ import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import React from "react";
+import { Link } from "react-router-dom";
+import { RESUME_PATH } from "../constants";
 
 const useStyles = makeStyles((theme) => ({
   heroContent: {
@@ -51,9 +53,11 @@ export default function Album() {
               <div className={classes.heroButtons}>
                 <Grid container spacing={2} className={classes.components}>
                   <Grid item>
-                    <Button variant="contained" color="primary">
-                      Main call to action
-                    </Button>
+                    <Link to={RESUME_PATH} target="_blank" download>
+                      <Button variant="contained" color="primary">
+                        Download Resume
+                      </Button>
+                    </Link>
                   </Grid>
                   <Grid item>
                     <Button variant="outlined" color="primary">
