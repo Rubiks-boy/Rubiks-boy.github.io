@@ -30,6 +30,33 @@ const useStyles = makeStyles((theme) => ({
     },
     [theme.breakpoints.up("md")]: {},
   },
+  "@keyframes bg-gradient-animate": {
+    "0%": { backgroundPosition: "left" },
+    "100%": { backgroundPosition: "right" },
+  },
+  gradient: {
+    [theme.breakpoints.down("sm")]: {
+      textAlign: "center",
+      justifyContent: "center",
+    },
+    [theme.breakpoints.up("md")]: {},
+    WebkitBackgroundClip: "text",
+    backgroundClip: "text",
+    color: "transparent",
+    // backgroundColor: "rgba(0, 0, 0, 0)",
+    // backgroundImage: "linear-gradient(45deg, #FFFFFF 00%, #000000 90%)",
+    // transition: "background 5s ease-in-out",
+    backgroundSize: "500%",
+    backgroundImage:
+      "linear-gradient(45deg, #0033cc 0%, #0040ff 25%, #3366ff 50%, #5500dd 80%, #9900ee 100%)",
+    backgroundPosition: "left",
+    animation: "$bg-gradient-animate 10s infinite alternate",
+  },
+  socialIcon: {
+    "&:hover": {
+      height: "500px",
+    },
+  },
 }));
 
 export default function Album() {
@@ -43,13 +70,13 @@ export default function Album() {
             <FadeInOnLoad timeout={FADEIN_TIMEOUT_FAST}>
               <div>
                 <Typography
-                  className={classes.components}
+                  // className={classes.gradient}
                   component="h1"
                   variant="h2"
-                  color="textPrimary"
+                  // color="textPrimary"
                   gutterBottom
                 >
-                  Adam Walker
+                  <div className={classes.gradient}>Adam Walker</div>
                 </Typography>
                 <Typography
                   className={classes.components}
@@ -88,7 +115,7 @@ export default function Album() {
                       // +2 from the delays for text, and then buttons
                       delay={FADEIN_SEPARATION * (i + 2)}
                     >
-                      <SocialIcon url={url} />
+                      <SocialIcon url={url} className={classes.socialIcon} />
                     </FadeInOnLoad>
                   </Grid>
                 ))}
